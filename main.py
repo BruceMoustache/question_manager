@@ -1,3 +1,5 @@
+# TODO modularizar projeto
+
 from random import shuffle
 from database import DATABASE
 
@@ -30,7 +32,7 @@ def show_order():
     for index, question in enumerate(ORDER_LIST):
         question_done = DONE[index]
         color = GREEN if question_done else RED
-        print(f'{color}{question} -- done: {question_done}{RESET_COLORS}')
+        print(f'{color}{question}\t--\tdone: {question_done}{RESET_COLORS}')
 
 
 def manager():
@@ -49,12 +51,16 @@ def update_database():
     database_write.close()
 
 
-if __name__ == '__main__':
+def help_message():
     print('type "set" to set another order')
     print('type "show" to show last order')
     print('type "manager" to manage your questions')
     print('type "help" to show this messages')
     print('type "exit" to exit')
+ 
+
+if __name__ == '__main__':
+    help_message()
     while True:
         answer = input('--> ')
         if answer == 'set':
@@ -63,6 +69,8 @@ if __name__ == '__main__':
             show_order()
         elif answer == 'manager':
             manager()
+        elif answer == 'help':
+            help_message()
         elif answer == 'exit':
             exit()
 
