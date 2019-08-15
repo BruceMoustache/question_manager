@@ -17,8 +17,8 @@ def show_order():
     print(ORDER_LIST)
 
 
-print('if you want to set another order type "set"')
-print('if you want to show last order type "show"')
+print('type "set" if you want to set another order')
+print('type "show" if you want to show last order')
 answer = input('--> ')
 if answer == 'set':
     new_order()
